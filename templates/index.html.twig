@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Movies Page
+{% endblock %}
+
+{% block body %}
+    {% for movie in movies %}
+        <li>
+            {{ movie }}
+            {# movie #}
+        </li>
+    {% endfor %}
+
+    <!-- Global variables -->
+    {{ _charset }}
+    {{ _self }}
+    {{ project_title }}
+{% endblock %}
