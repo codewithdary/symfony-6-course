@@ -1,0 +1,18 @@
+<h1>
+    <!-- Print our variables in twig -->
+    {{ title }}
+
+    <!-- More information about variable -->
+    {{ dump(title) }}
+
+    <!-- Conditional statements in Twig -->
+    {% if title %}
+        <p>
+            {{ title }} is a movie.
+        </p>
+    {% elseif %}
+        <p>
+            Whoops, no title has been set.
+        </p>
+    {% endif %}
+</h1>
