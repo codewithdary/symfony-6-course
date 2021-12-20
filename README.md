@@ -2,7 +2,7 @@
 
 Every chapter has its own associated repository. The repository will start with the episode number followed by the name. Example: ```4-setting-up-our-project```.
 
-This repository is linked to [this YouTube video]() where we will be covering all topics that are needed to become a Symfony developer.
+This repository is linked to [this YouTube video](https://www.youtube.com/playlist?list=PLFHz2csJcgk-t8ErN1BHUUxTNj45dkSqS) where we will be covering all topics that are needed to become a Symfony developer.
 
 •	Author: [Code With Dary](https://github.com/codewithdary/) <br>
 •	Twitter: [@codewithdary](https://twitter.com/codewithdary) <br>
