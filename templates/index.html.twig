@@ -1,18 +1,19 @@
-<h1>
-    <!-- Print our variables in twig -->
-    {{ title }}
+{% extends "base.html.twig" %}
 
-    <!-- More information about variable -->
-    {{ dump(title) }}
+{% block title %}
+    Movies Page
+{% endblock %}
 
-    <!-- Conditional statements in Twig -->
-    {% if title %}
-        <p>
-            {{ title }} is a movie.
-        </p>
-    {% elseif %}
-        <p>
-            Whoops, no title has been set.
-        </p>
-    {% endif %}
-</h1>
+{% block body %}
+    {% for movie in movies %}
+        <li>
+            {{ movie }}
+            {# movie #}
+        </li>
+    {% endfor %}
+
+    <!-- Global variables -->
+    {{ _charset }}
+    {{ _self }}
+    {{ project_title }}
+{% endblock %}
