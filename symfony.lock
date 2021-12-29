@@ -103,6 +103,9 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "symfony/asset": {
+        "version": "v6.0.1"
+    },
     "symfony/cache": {
         "version": "v6.0.1"
     },
@@ -261,6 +264,28 @@
     },
     "symfony/var-exporter": {
         "version": "v6.0.0"
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.9",
+            "ref": "d2d1e09675fff3fa4193aa9950a7c39934524a25"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
+            "config/packages/assets.yaml",
+            "config/packages/prod/webpack_encore.yaml",
+            "config/packages/test/webpack_encore.yaml",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
+        ]
     },
     "symfony/yaml": {
         "version": "v6.0.1"
