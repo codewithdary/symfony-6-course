@@ -27,6 +27,12 @@ This repository is linked to [this YouTube video](https://www.youtube.com/playli
 | Ep. 4         | Setting up VS Code for Symfony |
 | Ep. 5         | Setting up our project & directory explained |
 | Ep. 6         | Controllers in Symfony |
+| Ep. 7         | Route Parameters in Symfony |
+| Ep. 8         | Views in Symfony |
+| Ep. 9         | Twigs layouts & blocks explained |
+| Ep. 10        | How to create a database |
+| Ep. 11        | Introduction to Doctrine |
+| Ep. 13        | Doctrine Relationships Explained |
 
 
 ## 1. Introduction to Symfony
