@@ -65,6 +65,55 @@ class MoviesController extends AbstractController
         ]);
     }
     
+    #[Route('/movies/edit/{id}', name: 'edit_movie')]
+    public function edit($id, Request $request): Response 
+    {
+        $movie = $this->movieRepository->find($id);
+        $form = $this->createForm(MovieFormType::class, $movie);
+
+        $form->handleRequest($request);
+        $imagePath = $form->get('imagePath')->getData();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($imagePath) {
+                if ($movie->getImagePath() !== null) {
+                    if (file_exists(
+                        $this->getParameter('kernel.project_dir') . $movie->getImagePath()
+                        )) {
+                            $this->GetParameter('kernel.project_dir') . $movie->getImagePath();
+                    }
+                    $newFileName = uniqid() . '.' . $imagePath->guessExtension();
+
+                    try {
+                        $imagePath->move(
+                            $this->getParameter('kernel.project_dir') . '/public/uploads',
+                            $newFileName
+                        );
+                    } catch (FileException $e) {
+                        return new Response($e->getMessage());
+                    }
+
+                    $movie->setImagePath('/uploads/' . $newFileName);
+                    $this->em->flush();
+
+                    return $this->redirectToRoute('movies');
+                }
+            } else {
+                $movie->setTitle($form->get('title')->getData());
+                $movie->setReleaseYear($form->get('releaseYear')->getData());
+                $movie->setDescription($form->get('description')->getData());
+
+                $this->em->flush();
+                return $this->redirectToRoute('movies');
+            }
+        }
+
+        return $this->render('movies/edit.html.twig', [
+            'movie' => $movie,
+            'form' => $form->createView()
+        ]);
+    }
+
     #[Route('/movies/{id}', methods: ['GET'], name: 'show_movie')]
     public function show($id): Response
     {
