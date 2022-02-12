@@ -11,12 +11,15 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class MoviesController extends AbstractController
 {
     private $em;
     private $movieRepository;
-    public function __construct(EntityManagerInterface $em, MovieRepository $movieRepository) 
+    public function __construct(
+        EntityManagerInterface $em, 
+        MovieRepository $movieRepository) 
     {
         $this->em = $em;
         $this->movieRepository = $movieRepository;
@@ -37,12 +40,13 @@ class MoviesController extends AbstractController
     {
         $movie = new Movie();
         $form = $this->createForm(MovieFormType::class, $movie);
-
+        
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $newMovie = $form->getData();
-
             $imagePath = $form->get('imagePath')->getData();
+            
             if ($imagePath) {
                 $newFileName = uniqid() . '.' . $imagePath->guessExtension();
 
