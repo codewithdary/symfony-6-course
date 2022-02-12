@@ -49,6 +49,11 @@ class Movie
      */
     private $actors;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $userId;
+
     public function __construct()
     {
         $this->actors = new ArrayCollection();
@@ -127,6 +132,18 @@ class Movie
     public function removeActor(Actor $actor): self
     {
         $this->actors->removeElement($actor);
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }

@@ -28,16 +28,18 @@
             {{ movie.description }}
         </p>
 
-        <a 
-            href="/movies/edit/{{ movie.id }}"
-            class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
-            Edit Movie
-        </a>
+        {% if app.user and movie.userId == app.user.id %}
+            <a 
+                href="/movies/edit/{{ movie.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Edit Movie
+            </a>
 
-        <a 
-            href="/movies/delete/{{ movie.id }}"
-            class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
-            Delete Movie
-        </a>
+            <a 
+                href="/movies/delete/{{ movie.id }}"
+                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+                Delete Movie
+            </a>
+        {% endif %}
     </div>
 {% endblock %}
