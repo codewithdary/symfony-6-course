@@ -30,6 +30,11 @@ class Movie
     private $releaseYear;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $imagePath;
@@ -69,6 +74,18 @@ class Movie
     public function setReleaseYear(int $releaseYear): self
     {
         $this->releaseYear = $releaseYear;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

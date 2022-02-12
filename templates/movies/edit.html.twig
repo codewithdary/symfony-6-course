@@ -1,23 +1,21 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-<div class="w-4/5 m-auto text-left">
-    <div class="py-15">
-        <h1 class="text-6xl">
-            Edit Movie Review
-        </h1>
-    </div>
-</div>
+<div class="w-4/5 m-auto pt-40">
+    <h1 class="text-6xl text-center pb-12">
+        Create Movie
+    </h1>
 
-<div class="w-4/5 m-auto pt-20">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
 
+        {{ form_widget(form) }}
+        
         <button    
             type="submit"
             class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-            Submit Review
+            Submit Post
         </button>
+
     {{ form_end(form) }}
 </div>
 {% endblock %}
